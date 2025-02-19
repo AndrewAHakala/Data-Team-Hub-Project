@@ -1,0 +1,39 @@
+semantic_models:
+  #The name of the semantic model.
+  - name: sales_team
+    defaults:
+      agg_time_dimension: salesrep_start_date
+    description: |
+      Sales team dimension table. This table contains all sales team information
+    #The name of the dbt model and schema
+    model: ref('stg_sales_team_dim')
+
+#Entities. These usually correspond to keys in the table.
+    entities:
+      - name: sales_rep
+        type: primary
+        expr: salesrep_id
+
+
+    #Measures. These are the aggregations on the columns in the table.
+    measures: 
+      - name: sales_rep_tenure
+        expr: months_between(current_date(), salesrep_start_date)
+        agg: average
+
+     
+  #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Metric by Dimension.  
+    dimensions:
+      - name: salesrep_start_date
+        type: time
+        type_params:
+          time_granularity: day 
+      - name: sales_rep_name
+        type: categorical
+        expr: salesrep_name
+      - name: is_sales_rep_trained
+        type: categorical
+        expr: is_trained_in_new_sales_program
+      - name: sales_region
+        type: categorical
+        expr: salesrep_region

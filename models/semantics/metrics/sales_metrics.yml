@@ -1,0 +1,69 @@
+metrics:
+
+  - name: order_total
+    description: Sum of total order amount. Includes tax + revenue.
+    type: simple
+    label: Order Total
+    type_params:
+      measure: order_total
+
+  - name: number_of_customers
+    description: The number of distinct customers
+    type: simple
+    label: Number of Customers
+    type_params:
+      measure: customers_with_orders
+
+  - name: number_of_orders
+    description: The number of orders
+    type: simple
+    label: Number of Orders
+    type_params:
+      measure: order_count
+
+  - name: sales_person_tenure
+    description: The length of time in months the sales person has been at the company
+    type: simple
+    label: Sales Person Tenure
+    type_params:
+      measure: sales_rep_tenure
+
+  - name: customer_tenure
+    description: The length of time in months between the customers first purchase and todays date
+    type: simple
+    label: Customer Tenure
+    type_params:
+      measure: customer_tenure
+
+  - name: customer_lifetime_value
+    description: The amount the customer has spent divided by the number of months they have been a customer
+    type: derived
+    label: Customer Lifetime Value
+    type_params:
+      expr: customer_spend / customer_lifetime_tenure
+      metrics:
+        - name: order_total
+          alias: customer_spend
+        - name: customer_tenure
+          alias: customer_lifetime_tenure
+
+  - name: sales_to_younger_customers
+    description: any sale that happens when a customer is less than 55 years old
+    type: simple
+    label: Younger Customer Sales
+    type_params:
+      measure: order_total
+    filter: | 
+        {{Dimension('customer__customer_age')}} <= 55
+
+
+  - name: cumulative_orders
+    description: >
+      The growth of orders over a specified_timeframe
+    label: Cumulative Orders
+    type: cumulative
+    type_params: 
+      measure:
+          name: order_total
+      cumulative_type_params:
+        grain_to_date: day

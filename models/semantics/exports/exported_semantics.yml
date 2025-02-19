@@ -1,0 +1,29 @@
+saved_queries:
+  - name: order_metrics
+    description: Order information and relavant details
+    query_params:
+      metrics:
+        - order_total
+        - number_of_orders
+        - number_of_customers
+
+      group_by:
+        - TimeDimension('transaction_id__purchase_datetime', 'month')
+        - Dimension('customer__customer_state')
+        - Dimension('customer__customer_gender')
+        - Dimension('sales_rep__sales_region')
+        - Dimension('sales_rep__sales_rep_name')
+
+      where:
+        - order_total > 0
+
+    config:
+      cache:
+        enabled: true
+
+    exports:
+      - name: order_data_key_metrics
+        config:
+          export_as: table
+          schema: exported_semantics
+          alias: order_data_key_metrics

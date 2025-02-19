@@ -1,0 +1,40 @@
+semantic_models:
+  #The name of the semantic model.
+  - name: customers
+    defaults:
+      agg_time_dimension: customer_join_date
+    description: |
+      Customer dimension table. This table contains all customer information
+    #The name of the dbt model and schema
+    model: ref('stg_customer_dim')
+
+#Entities. These usually correspond to keys in the table.
+    entities:
+      - name: customer
+        type: primary
+        expr: customer_id
+
+
+    #Measures. These are the aggregations on the columns in the table.
+    measures: 
+      - name: customer_tenure
+        description: The amount of time betweent he current_date and when the customer joined
+        expr: months_between(current_date(), customer_join_date)
+        agg: average
+
+     
+  #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Metric by Dimension.  
+    dimensions:
+      - name: customer_join_date
+        type: time
+        type_params:
+          time_granularity: day
+      - name: customer_age
+        type: categorical
+        expr: datediff(year, dateadd(day, birth_date - 2, '1900-01-01'), CURRENT_DATE) 
+      - name: customer_state
+        type: categorical
+        expr: state
+      - name: customer_gender
+        type: categorical
+        expr: gender

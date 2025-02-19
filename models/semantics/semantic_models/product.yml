@@ -1,0 +1,26 @@
+semantic_models:
+  #The name of the semantic model.
+  - name: product
+    description: |
+      Product dimension table. This table contains all product information on products that are sold at the company
+    #The name of the dbt model and schema
+    model: ref('stg_product_dim')
+
+#Entities. These usually correspond to keys in the table.
+    entities:
+      - name: product_id
+        type: primary
+        expr: product_id
+
+     
+  #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Metric by Dimension.  
+    dimensions:
+      - name: product_name
+        type: categorical
+        expr: vehicle_name
+      - name: product_category
+        type: categorical
+        expr: vehicle_category
+      - name: product_color
+        type: categorical
+        expr: vehicle_color
