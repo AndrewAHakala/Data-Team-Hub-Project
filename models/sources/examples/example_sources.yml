@@ -1,0 +1,14 @@
+version: 2
+
+
+sources:
+  - name: example_source
+    database:  steve_d_development
+    schema: dbt_sdowling
+
+
+    tables:
+      - name: example_orders_table
+        description: example order tracking table
+        config:
+          event_time: modified_timestamp
