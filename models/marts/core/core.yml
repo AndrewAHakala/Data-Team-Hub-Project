@@ -186,7 +186,7 @@ models:
         description: '{{ doc("item_tax_amount") }}'
       - name: net_item_sales_amount
         description: '{{ doc("net_item_sales_amount") }}'
-  
+
   - name: fct_orders
     description: orders fact table
     columns:
