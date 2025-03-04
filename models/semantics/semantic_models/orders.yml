@@ -38,7 +38,6 @@ semantic_models:
         description: Distinct count of customers placing orders
         expr: customer_id
         agg: count_distinct
-
   #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Metric by Dimension.  
     dimensions:
       - name: purchase_datetime
