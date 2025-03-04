@@ -25,6 +25,7 @@ semantic_models:
 
 
     #Measures. These are the aggregations on the columns in the table.
+    #Anything that you can do an aggregation function on
     measures: 
       - name: order_total
         description: The total revenue for each order.

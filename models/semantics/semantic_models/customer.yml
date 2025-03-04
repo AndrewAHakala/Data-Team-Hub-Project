@@ -16,6 +16,7 @@ semantic_models:
 
 
     #Measures. These are the aggregations on the columns in the table.
+    #Anything that you can do an aggregation function on
     measures: 
       - name: customer_tenure
         description: The amount of time betweent he current_date and when the customer joined
@@ -23,7 +24,9 @@ semantic_models:
         agg: average
 
      
-  #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Metric by Dimension.  
+  #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Metric by Dimension.
+  #Anything that I can compute
+
     dimensions:
       - name: customer_join_date
         type: time
