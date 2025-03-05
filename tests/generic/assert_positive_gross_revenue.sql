@@ -1,3 +1,4 @@
+{{ config(store_failures = true) }}
 {% test warn_gross_revenue_is_negative(model, column_name) %}
 
 with t as (
