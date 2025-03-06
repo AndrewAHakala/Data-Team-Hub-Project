@@ -1,3 +1,5 @@
+--Snapshots are used to capture point-in-time states of a source table, tracking changes to records over time
+--snapshot strategy timestamp or check
 {% snapshot customer_snapshot %}
 {{
     config(
