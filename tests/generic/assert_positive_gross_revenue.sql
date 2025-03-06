@@ -1,5 +1,7 @@
 {% test warn_gross_revenue_is_negative(model, column_name) %}
-{{ config(store_failures = false) }}
+
+{{ config(store_failures = true) }}
+
 with t as (
 Select {{ column_name }} as validation_field 
 FROM {{ model }}
