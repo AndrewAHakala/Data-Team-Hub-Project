@@ -1,4 +1,4 @@
-{{
+/*{{
     config(
         materialized='incremental',
         incremental_strategy='microbatch',
@@ -16,3 +16,4 @@ select
     created_timestamp,
     modified_timestamp
 from {{ source('example_source', 'example_orders_table') }}
+*/
