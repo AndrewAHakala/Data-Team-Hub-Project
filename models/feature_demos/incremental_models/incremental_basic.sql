@@ -1,7 +1,7 @@
 --Add a new row to preserve history, typically with start/end dates or a version number to track changes.
 --Table persists and grows over time as new data is added.
 --Ideal for large, append-only datasets or event-based data where reprocessing everything would be inefficient.
-
+/*
 {{
     config(
         materialized='incremental',
@@ -19,4 +19,4 @@ from {{ source('customer_data_source', 'customer_dim') }}
 {% if is_incremental() %}
 --identify new or updated records
 where modified_timestamp > (select max(modified_timestamp) from {{ this }})
-{% endif %}
+{% endif %}*/
