@@ -24,7 +24,7 @@ semantic_models:
         agg: average
 
      
-  #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Metric by Dimension.
+  #Dimensions. Either categorical or time. These add additional context to metrics. The typical querying pattern is Measure/metric by Dimension.
   #Anything that I can compute
 
     dimensions:
