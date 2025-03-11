@@ -78,9 +78,11 @@ models:
 
         # we apply tests to this column
         tests:
-          - not_null
+          - not_null:
+              description: this is a not null test
           - warn_gross_revenue_is_negative:
               severity: warn 
+              description: testing the description of this test XYZ
         meta:
           is_certified: false
           certification_level: uncertified
