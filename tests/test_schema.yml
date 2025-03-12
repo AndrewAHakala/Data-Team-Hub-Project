@@ -1,0 +1,5 @@
+version: 2
+data_tests:
+  - name: stg_tpch_orders_assert_postive_price
+    description: >
+      This is a description for a singular test.
