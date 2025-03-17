@@ -14,7 +14,7 @@ semantic_models:
         type: primary
       - name: customer
         type: foreign
-        expr: customer_id
+        expr: "customer_id"
       - name: sales_rep
         type: foreign
         expr: salesrep_id
@@ -29,7 +29,7 @@ semantic_models:
     measures: 
       - name: order_total
         description: The total revenue for each order.
-        expr: transaction_amount
+        expr: "transaction_amount"
         agg: sum
       - name: order_count
         expr: 1
