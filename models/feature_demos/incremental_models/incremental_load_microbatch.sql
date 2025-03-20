@@ -1,4 +1,6 @@
-/*{{
+--Use microbatch incremental models to process large time-series datasets efficiently
+--Each "batch" corresponds to a single bounded time period defined by event_time + batch_size
+{{
     config(
         materialized='incremental',
         incremental_strategy='microbatch',
@@ -16,4 +18,3 @@ select
     created_timestamp,
     modified_timestamp
 from {{ source('example_source', 'example_orders_table') }}
-*/
