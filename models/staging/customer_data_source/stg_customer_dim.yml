@@ -1,0 +1,47 @@
+version: 2
+models:
+- name: stg_customer_dim
+  description: This model serves as a staging layer for customer dimension data, transforming
+    and preparing customer information for further analysis. It includes personal
+    and contact details, as well as credit card information and timestamps for record
+    creation and modification.
+  columns:
+  - name: col
+    description: A static column with a constant value of 222, used for testing or
+      placeholder purposes.
+  - name: customer_id
+    description: A unique identifier for each customer.
+  - name: gender
+    description: The gender of the customer.
+  - name: birth_date
+    description: The birth date of the customer.
+  - name: maiden_name
+    description: The maiden name of the customer, if applicable.
+  - name: lname
+    description: The last name of the customer.
+  - name: fname
+    description: The first name of the customer.
+  - name: address
+    description: The street address of the customer.
+  - name: city
+    description: The city where the customer resides.
+  - name: state
+    description: The state where the customer resides.
+  - name: zip
+    description: The postal code of the customer's address.
+  - name: phone
+    description: The phone number of the customer.
+  - name: email
+    description: The email address of the customer.
+  - name: cc_type
+    description: The type of credit card used by the customer.
+  - name: cc_number
+    description: The credit card number of the customer.
+  - name: cc_cvc
+    description: The CVC code of the customer's credit card.
+  - name: customer_join_date
+    description: The date when the customer joined.
+  - name: created_timestamp
+    description: The timestamp when the record was created.
+  - name: modified_timestamp
+    description: The timestamp when the record was last modified.
