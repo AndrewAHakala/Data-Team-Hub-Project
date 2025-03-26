@@ -24,7 +24,7 @@ with source as (
         cc_number,
         cc_cvc,
         customer_join_date,
-        --created_timestamp,
+        created_timestamp,
         --modified_timestamp
     from source
 
