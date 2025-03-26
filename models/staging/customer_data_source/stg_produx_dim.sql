@@ -15,8 +15,8 @@ renamed as (
         color as vehicle_color,
         weight as vehicle_weight,
         dimensions as vehicle_dimensions,
-        --created_timestamp,
-        --modified_timestamp
+        created_timestamp,
+        modified_timestamp
 
     from source
 

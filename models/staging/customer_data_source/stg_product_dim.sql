@@ -16,7 +16,7 @@ renamed as (
         weight as vehicle_weight,
         dimensions as vehicle_dimensions,
         created_timestamp,
-        --modified_timestamp
+        modified_timestamp
 
     from source
 

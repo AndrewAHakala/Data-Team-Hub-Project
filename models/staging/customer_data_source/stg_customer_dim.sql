@@ -25,7 +25,7 @@ with source as (
         cc_cvc,
         customer_join_date,
         created_timestamp,
-        --modified_timestamp
+        modified_timestamp
     from source
 
 )

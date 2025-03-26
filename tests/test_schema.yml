@@ -3,8 +3,3 @@ data_tests:
   - name: stg_tpch_orders_assert_postive_price
     description: >
       This is a description for a singular test.
-  - name: comp_check
-    description: "Comprehensive check for required meta columns (created_timestamp, modified_timestamp) in all models"
-    severity: error
-    config:
-        store_failures: true
