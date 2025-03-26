@@ -45,5 +45,5 @@ models:
     staging: 
       materialized: view
 
-tests:
-  +store_failures: true  # all tests
+#tests:
+#  +store_failures: true  # all tests
