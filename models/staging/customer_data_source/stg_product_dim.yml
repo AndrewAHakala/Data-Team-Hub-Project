@@ -1,0 +1,26 @@
+version: 2
+models:
+- name: stg_product_dim
+  description: This model serves as a staging layer for product data, transforming
+    and renaming fields from the source to ensure consistency and readability. It
+    provides detailed information about products, including their identifiers, names,
+    categories, colors, weights, and dimensions, along with timestamps for creation
+    and modification. This model is essential for downstream analytics and reporting
+    on product-related metrics.
+  columns:
+  - name: product_id
+    description: A unique identifier for each product.
+  - name: vehicle_name
+    description: The name of the vehicle or product.
+  - name: vehicle_category
+    description: The category to which the vehicle or product belongs.
+  - name: vehicle_color
+    description: The color of the vehicle or product.
+  - name: vehicle_weight
+    description: The weight of the vehicle or product.
+  - name: vehicle_dimensions
+    description: The dimensions of the vehicle or product.
+  - name: created_timestamp
+    description: The timestamp when the product record was created.
+  - name: modified_timestamp
+    description: The timestamp when the product record was last modified.
