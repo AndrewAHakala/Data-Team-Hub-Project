@@ -3,8 +3,8 @@ version: 2
 
 sources:
   - name: example_source
-    database:  steve_d_development
-    schema: dbt_sdowling
+    database:  HAKALA_DEVELOPMENT
+    schema: dbtsandbox_ahakala
 
 
     tables:
