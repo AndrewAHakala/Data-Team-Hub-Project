@@ -98,6 +98,36 @@ models:
         description: '{{ doc("available_quantity") }}'
       - name: cost
         description: '{{ doc("cost") }}'
+ 
+  - name: int_dim_customers
+    columns:
+      - name: customer_key
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        data_tests:
+          - not_null
+      - name: address
+        data_tests:
+          - not_null
+      - name: nation
+        data_tests:
+          - not_null
+      - name: region
+        data_tests:
+          - not_null
+      - name: phone_number
+        data_tests:
+          - not_null
+      - name: account_balance
+        data_tests:
+          - not_null
+      - name: market_segment
+        data_tests:
+          - not_null
+    access: public
+
 #
 #  - name: customer_tier
 #    description: puts customers into tiers (1-4)
