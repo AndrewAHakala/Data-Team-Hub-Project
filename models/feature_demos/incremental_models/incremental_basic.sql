@@ -17,6 +17,6 @@ select
 from {{ source('example_source', 'example_orders_table') }}
 
 {% if is_incremental() %}
---identify new or updated records
+--where statement to identify new or updated records
 where modified_timestamp > (select max(modified_timestamp) from {{ this }})
 {% endif %}
