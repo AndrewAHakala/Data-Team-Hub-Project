@@ -1,4 +1,4 @@
--- take all project models
+/* take all project models
 with models as (
     select distinct node_unique_id from {{ ref('stg_columns') }}
 ),

@@ -1,4 +1,4 @@
-{% set required_columns = ['created_timestamp', 'modified_timestamp'] %}
+/*{% set required_columns = ['created_timestamp', 'modified_timestamp'] %}
 
 -- Get the current schema based on environment
 {% set target_schema = target.schema %}

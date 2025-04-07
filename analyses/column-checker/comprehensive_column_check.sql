@@ -1,4 +1,4 @@
-{% set required_columns = ['column 1', 'column 2'] %} -- specify required columns here
+/*{% set required_columns = ['column 1', 'column 2'] %} -- specify required columns here
 
 -- Get the current schema based on environment
 {% set target_schema = target.schema %}
