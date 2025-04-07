@@ -1,4 +1,5 @@
-/*{% set required_columns = ['created_timestamp', 'modified_timestamp'] %} -- specify required columns here
+{#
+{% set required_columns = ['created_timestamp', 'modified_timestamp'] %} -- specify required columns here
 
 -- Get the current schema based on environment
 {% set target_schema = target.schema %}
@@ -58,4 +59,5 @@ select
     documented_column,
     actual_column
 from comparison
-where actual_column is null */
+where actual_column is null 
+#}
