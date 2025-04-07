@@ -132,7 +132,7 @@ select
     null as "Count",
     issue as "Affected Models"
 from all_issues
-order by separator desc, "Issue Type"*/
+order by separator desc, "Issue Type"
 
 
 
@@ -143,4 +143,4 @@ select
         when 3 then 'ERROR: ' || model_name || ' - ' || issue
     end as failure_reason
 from all_issues
-order by scenario_type, model_name 
+order by scenario_type, model_name */

@@ -21,4 +21,4 @@ result as (
 )
 select * from result
 where found_cols < 2 -- update based on how many meta columns there should be
-  or found_cols is null
+  or found_cols is null */

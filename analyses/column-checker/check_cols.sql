@@ -58,4 +58,4 @@ select
     documented_column,
     actual_column
 from comparison
-where actual_column is null 
+where actual_column is null */
