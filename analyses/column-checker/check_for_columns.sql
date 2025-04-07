@@ -1,4 +1,5 @@
-/* take all project models
+{#
+ --take all project models
 with models as (
     select distinct node_unique_id from {{ ref('stg_columns') }}
 ),
@@ -21,4 +22,6 @@ result as (
 )
 select * from result
 where found_cols < 2 -- update based on how many meta columns there should be
-  or found_cols is null */
+  or found_cols is null 
+
+#}

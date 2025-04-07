@@ -1,4 +1,5 @@
-/*{% set required_columns = ['column 1', 'column 2'] %} -- specify required columns here
+{#
+{% set required_columns = ['column 1', 'column 2'] %} -- specify required columns here
 
 -- Get the current schema based on environment
 {% set target_schema = target.schema %}
@@ -112,4 +113,8 @@ select
         when 3 then 'ERROR: ' || model_name || ' - ' || issue
     end as failure_reason
 from all_issues
-order by scenario_type, model_name */
+order by scenario_type, model_name 
+
+#}
+ 
+
