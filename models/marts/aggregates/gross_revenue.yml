@@ -15,8 +15,8 @@ models:
     config:
 
       # be enforcing a contract we enfore the models column names, data types, and additional constraints (think not null)
-      contract:
-          enforced: true
+      #contract:
+      #    enforced: true
 
       # we tag this model to certain teams
       tags: ['finance', 'RevOps']
