@@ -34,7 +34,7 @@ models:
     columns:
 
       # our first column
-      - name: order_month
+      - name: order_date
         
         # we enforce this data type because this model is a contract
         data_type: date
