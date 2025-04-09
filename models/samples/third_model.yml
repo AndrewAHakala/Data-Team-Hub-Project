@@ -1,0 +1,6 @@
+nullmodels:
+  - name: third_model
+    columns:
+      - name: col
+        data_tests:
+          - not_null
