@@ -2,6 +2,7 @@
 --Table persists and grows over time as new data is added.
 --Ideal for large, append-only datasets or event-based data where reprocessing everything would be inefficient.
 --dbt run-operation add_row_to_example_orders_table
+--
 {{
     config(
         materialized='incremental'
