@@ -1,0 +1,22 @@
+version: 2
+models:
+- name: monthly_gross_revenue
+  description: This model calculates the total gross revenue for accepted orders in
+    the Asia region, aggregated by month, region, return status, and shipping mode.
+    It provides insights into the revenue generated from sales in this specific region
+    and return category.
+  columns:
+  - name: order_month
+    description: The month in which the order was placed, truncated to the first day
+      of the month.
+  - name: region_name
+    description: The name of the region where the order was placed, specifically 'ASIA'
+      for this model.
+  - name: return_flag
+    description: Indicates whether the order was accepted or not, specifically 'ACCEPTED'
+      for this model.
+  - name: ship_mode
+    description: The mode of shipping used for the order.
+  - name: gross_revenue
+    description: The total gross sales amount for the items in the order, aggregated
+      for the specified month, region, return status, and shipping mode.
