@@ -29,4 +29,4 @@ exposures:
     
     # set dependencies 
     depends_on:
-      - ref('gross_revenue')
+      - ref('monthly_gross_revenue')

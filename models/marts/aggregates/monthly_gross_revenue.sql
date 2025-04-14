@@ -3,15 +3,13 @@
         materialized='table'
     )
 }}
-
 select
-    order_date,
+    date_trunc('month', order_date) as order_month,
     region_name,
-    return_flag,
     sum(gross_item_sales_amount) as gross_revenue
 
 from {{ ref('fct_order_items') }}
 group by 
-    1, 2, 3
+    1, 2
 order by 
-    1, 2, 3
+    1, 2
