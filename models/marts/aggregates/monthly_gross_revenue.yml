@@ -9,7 +9,7 @@ groups:
 models:
 
   # define the model name
-  - name: gross_revenue
+  - name: monthly_gross_revenue
 
     # defining this models configurations
     config:
