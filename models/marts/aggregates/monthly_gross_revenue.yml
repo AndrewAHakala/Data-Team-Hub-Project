@@ -37,6 +37,8 @@ models:
         data_type: text
         meta:
           primary_key: true
+        tests:
+          - unique
 
       # our first column
       - name: order_month
