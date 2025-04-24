@@ -34,6 +34,10 @@ models:
     columns:
       - name: order_item_key
         description: Primary key
+        data_type: number
+        meta:
+          primary_key: true
+
       # our first column
       - name: order_month
         
