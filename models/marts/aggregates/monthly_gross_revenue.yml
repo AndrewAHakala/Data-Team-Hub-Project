@@ -32,7 +32,8 @@ models:
 
     # we then define the model column information
     columns:
-
+      - name: order_item_key
+        description: Primary key
       # our first column
       - name: order_month
         
