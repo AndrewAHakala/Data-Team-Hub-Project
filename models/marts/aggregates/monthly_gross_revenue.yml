@@ -34,7 +34,7 @@ models:
     columns:
       - name: order_item_key
         description: Primary key
-        data_type: number
+        data_type: text
         meta:
           primary_key: true
 
