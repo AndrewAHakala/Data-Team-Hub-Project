@@ -7,7 +7,7 @@ select
     order_item_key,
     date_trunc('month', order_date) as order_month,
     region_name,
-    1000 as gross_revenue
+    100 as gross_revenue
 
 from {{ ref('fct_order_items') }}
 group by 
