@@ -1,0 +1,84 @@
+models:
+  - name: control_customer
+
+      # defining this models configurations
+    config:
+
+      # be enforcing a contract we enfore the models column names, data types, and additional constraints (think not null)
+      contract:
+          enforced: true
+
+      # we tag this model to certain teams
+      tags: ['finance', 'RevOps']
+
+    # define the group if belongs to
+    group: finance
+
+    # define the access type public == can be used outside current project, private == only within the bounds of this project
+    access: public
+    
+    # a description of this model that references a doc block
+    description: '{{ doc("monthly_gross_revenue_desc") }}'
+
+    columns:
+      - name: c_custkey
+        data_type: integer
+        data_tests:
+          - unique
+          - not_null
+      - name: c_name
+        data_type: string
+        data_tests:
+          - not_null
+      - name: c_address
+        data_type: string
+        data_tests:
+          - not_null
+      - name: c_nationkey
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: c_phone
+        data_type: string
+        data_tests:
+          - not_null
+      - name: c_acctbal
+        data_type: decimal
+        data_tests:
+          - not_null
+      - name: c_mktsegment
+        data_type: string
+        data_tests:
+          - not_null
+      - name: c_comment
+        data_type: string
+        data_tests:
+          - not_null
+          
+  - name: stg_customer
+    columns:
+      - name: customer_key
+        data_tests:
+          - unique
+          - not_null
+      - name: name
+        data_tests:
+          - not_null
+      - name: address
+        data_tests:
+          - not_null
+      - name: nation_key
+        data_tests:
+          - not_null
+      - name: phone_number
+        data_tests:
+          - not_null
+      - name: account_balance
+        data_tests:
+          - not_null
+      - name: market_segment
+        data_tests:
+          - not_null
+      - name: comment
+        data_tests:
+          - not_null
