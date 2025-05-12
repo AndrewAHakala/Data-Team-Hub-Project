@@ -4,7 +4,7 @@ SELECT
     oli.part_key,
     oli.order_date,
     oli.line_number,
-    oli.quantity,
+    1 AS oli.quantity,
     SUM(oli.base_price) OVER (
         PARTITION BY oli.customer_key
         ORDER BY
