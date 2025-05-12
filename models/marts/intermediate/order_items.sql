@@ -29,7 +29,7 @@ select
     line_item.receipt_date,
     line_item.ship_mode,
     line_item.extended_price,
-    line_item.quantity,
+    1 as quantity,
     
     -- extended_price is actually the line item total,
     -- so we back out the extended price per item
