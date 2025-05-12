@@ -24,11 +24,10 @@ select
     line_item.ship_date,
     line_item.commit_date,
     line_item.receipt_date,
-    line_item.ship_mode,
     line_item.extended_price,
-    line_item.quantity,
-    'col' as order_status,
-    
+    1 as quantity,
+    'col' as inventory_status,
+    line_item.ship_mode,
     -- extended_price is actually the line item total,
     -- so we back out the extended price per item
     (line_item.extended_price/nullif(line_item.quantity, 0)){{ money() }} as base_price,
