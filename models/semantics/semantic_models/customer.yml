@@ -53,4 +53,4 @@ metrics:
         name: order_total
         fill_nulls_with: 0
     filter: | 
-        {{Dimension('customer__customer_age')}} > 3
+        {{Dimension('customer__customer_age')}} >55
