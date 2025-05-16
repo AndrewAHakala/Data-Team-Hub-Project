@@ -44,3 +44,13 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day 
+
+metrics:
+  - name: order_total
+    description: Sum of total order amount. Includes tax + revenue.
+    label: Order Total
+    type: simple
+    type_params:
+      measure: 
+        name: order_total
+        fill_nulls_with: 0
