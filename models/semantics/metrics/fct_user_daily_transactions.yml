@@ -1,0 +1,12 @@
+metrics:
+
+  - name: high_value_customers
+    description: distinct count of customers that placed orders greater than $1000
+    type: simple
+    label: High Value Customers
+    type_params:
+      measure: 
+        name: order_total
+        fill_nulls_with: 0
+    filter: | 
+        {{Dimension('customer__customer_age')}} <= 55

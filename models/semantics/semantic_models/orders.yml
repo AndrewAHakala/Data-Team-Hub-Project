@@ -14,7 +14,7 @@ semantic_models:
         type: primary
       - name: customer
         type: foreign
-        expr: "customer_id"
+        expr: customer_id
       - name: sales_rep
         type: foreign
         expr: salesrep_id
@@ -44,3 +44,13 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day 
+
+metrics:
+  - name: order_total
+    description: Sum of total order amount. Includes tax + revenue.
+    label: Order Total
+    type: simple
+    type_params:
+      measure: 
+        name: order_total
+        fill_nulls_with: 0

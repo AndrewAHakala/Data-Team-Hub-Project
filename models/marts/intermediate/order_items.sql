@@ -18,19 +18,16 @@ select
     line_item.supplier_key,
     orders.order_date,
     orders.status_code as order_status_code,
-    
-    
     line_item.return_flag,
-    
     line_item.line_number,
     line_item.status_code as order_item_status_code,
     line_item.ship_date,
     line_item.commit_date,
     line_item.receipt_date,
-    line_item.ship_mode,
     line_item.extended_price,
-    line_item.quantity,
-    
+    1 as quantity,
+    'col' as inventory_status,
+    line_item.ship_mode,
     -- extended_price is actually the line item total,
     -- so we back out the extended price per item
     (line_item.extended_price/nullif(line_item.quantity, 0)){{ money() }} as base_price,

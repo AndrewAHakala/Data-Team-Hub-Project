@@ -10,6 +10,7 @@ sources:
     loaded_at_field: current_timestamp() - interval '6.3 hours' #this is for demo purposes
     tables:    
       - name: customer
+        access: public
         description: main customer table
         columns:
           - name: c_custkey

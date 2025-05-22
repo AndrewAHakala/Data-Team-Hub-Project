@@ -41,3 +41,16 @@ semantic_models:
       - name: customer_gender
         type: categorical
         expr: gender
+
+metrics:
+
+  - name: sales_to_older_customers
+    description: any sale that happens when a customer is older than 55 years old
+    type: simple
+    label: Older Customer Sales
+    type_params:
+      measure: 
+        name: order_total
+        fill_nulls_with: 0
+    filter: | 
+        {{Dimension('customer__customer_age')}} >55
