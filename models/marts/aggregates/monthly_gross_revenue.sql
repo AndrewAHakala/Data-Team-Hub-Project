@@ -10,6 +10,6 @@ select
 
 from {{ ref('fct_order_items') }}
 group by 
-    1, 2
+    order_month, region_name
 order by 
-    1, 2
+    order_month, region_name
