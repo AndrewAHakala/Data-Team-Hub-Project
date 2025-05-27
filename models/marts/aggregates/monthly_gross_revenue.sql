@@ -1,15 +1,33 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
-select
-    date_trunc('month', order_date) as order_month,
-    region_name,
-    sum(gross_item_sales_amount) as gross_revenue
-
-from {{ ref('fct_order_items') }}
-group by 
-    order_month, region_name
-order by 
-    order_month, region_name
+WITH fct_order_items AS (
+  SELECT
+    *
+  FROM {{ ref('fct_order_items') }}
+), formula_1 AS (
+  SELECT
+    *,
+    DATE_TRUNC('MONTH', ORDER_DATE) AS ORDER_MONTH
+  FROM fct_order_items
+), aggregate_1 AS (
+  SELECT
+    ORDER_MONTH,
+    REGION_NAME,
+    SUM(GROSS_ITEM_SALES_AMOUNT) AS GROSS_REVENUE
+  FROM formula_1
+  GROUP BY
+    ORDER_MONTH,
+    REGION_NAME
+), order_1 AS (
+  SELECT
+    *
+  FROM aggregate_1
+  ORDER BY
+    ORDER_MONTH ASC,
+    REGION_NAME ASC
+), monthly_gross_revenue AS (
+  SELECT
+    *
+  FROM order_1
+)
+SELECT
+  *
+FROM monthly_gross_revenue
