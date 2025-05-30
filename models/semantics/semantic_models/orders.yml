@@ -27,6 +27,10 @@ semantic_models:
     #Measures. These are the aggregations on the columns in the table.
     #Anything that you can do an aggregation function on
     measures: 
+      - name: order_total
+        description: The total revenue for each order.
+        expr: "transaction_amount"
+        agg: sum
       - name: order_count
         expr: 1
         agg: sum
@@ -40,3 +44,13 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day 
+
+metrics:
+  - name: order_total
+    description: Sum of total order amount. Includes tax + revenue.
+    label: Order Total
+    type: simple
+    type_params:
+      measure: 
+        name: order_total
+        fill_nulls_with: 0
