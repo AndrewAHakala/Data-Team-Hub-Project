@@ -17,7 +17,10 @@ packages:
   - name: dbt_assertions
     package: AxelThevenot/dbt_assertions
     version: 1.2.0
+  - name: dbt_artifacts
+    package: brooklyn-data/dbt_artifacts
+    version: 2.9.3
   - name: dbt_date
     package: calogica/dbt_date
     version: 0.7.2
-sha1_hash: 3fcdf5da101d220d1fda1c2b44fb6e265e80ee54
+sha1_hash: 1a77d999f5a79825e7bd02e3b39b03ab93beaac9
