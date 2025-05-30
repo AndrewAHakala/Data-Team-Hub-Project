@@ -5,12 +5,9 @@ sources:
     description: Snowflake provided tpch dataset for demoing purposes
     database: hakala_raw_data
     schema: tpch_data
-    freshness: # make this a warning as this is static data
-          warn_after: {count: 12, period: hour}
     loaded_at_field: current_timestamp() - interval '6.3 hours' #this is for demo purposes
-    tables:    
+    tables:
       - name: customer
-        access: public
         description: main customer table
         columns:
           - name: c_custkey
@@ -29,12 +26,15 @@ sources:
           - name: c_phone
             description: phone number of the customer
           - name: c_acctbal
-            description: raw account balance 
+            description: raw account balance
           - name: c_mktsegment
             description: market segment of the customer
           - name: c_comment
             description: '{{ doc("comment") }}'
 
+        config:
+          meta:
+            access: public
       - name: nation
         description: nation mapping
         columns:
@@ -101,7 +101,7 @@ sources:
           - name: ps_availqty
             description: raw available quantity
           - name: ps_supplycost
-            description: raw cost 
+            description: raw cost
           - name: ps_comment
             description: '{{ doc("comment") }}'
 
@@ -148,14 +148,14 @@ sources:
             description: '{{ doc("comment") }}'
       - name: orders
         description: main order tracking table
-        
+
         columns:
           - name: o_orderkey
             description: SF*1,500,000 are sparsely populated
-            data_tests: 
+            data_tests:
               - unique
               - not_null
-                  
+
           - name: o_custkey
             description: Foreign Key to C_CUSTKEY
             data_tests:
@@ -188,7 +188,7 @@ sources:
                   to: source('tpch_now', 'orders')
                   field: o_orderkey
           - name: l_partkey
-            description:  Foreign key to P_PARTKEY, first part of the compound Foreign Key to (PS_PARTKEY,PS_SUPPKEY) with L_SUPPKEY
+            description: Foreign key to P_PARTKEY, first part of the compound Foreign Key to (PS_PARTKEY,PS_SUPPKEY) with L_SUPPKEY
             data_tests:
               - relationships:
                   to: source('tpch', 'part')
@@ -213,13 +213,13 @@ sources:
             description: letter determining the status of the return (R=returned, A=accepted)
             data_tests:
               - accepted_values:
-                  values: ['R','A']
+                  values: ['R', 'A']
                   severity: warn
           - name: l_linestatus
             description: status code of the order item (P=returned, F=billed, O=shipped)
             data_tests:
-            - accepted_values:
-                values: ['P','F','O']
+              - accepted_values:
+                  values: ['P', 'F', 'O']
           - name: l_shipdate
             description: the date the order item is being shipped
           - name: l_commitdate
@@ -232,3 +232,6 @@ sources:
             description: method of shipping
           - name: l_comment
             description: '{{ doc("comment") }}'
+    config:
+      freshness: # make this a warning as this is static data
+        warn_after: {count: 12, period: hour}
