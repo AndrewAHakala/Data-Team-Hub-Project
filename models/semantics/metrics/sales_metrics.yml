@@ -14,6 +14,12 @@ metrics:
     type_params:
       measure: order_count
 
+  - name: sales_person_tenure
+    description: The length of time in months the sales person has been at the company
+    type: simple
+    label: Sales Person Tenure
+    type_params:
+      measure: sales_rep_tenure
 
   - name: customer_tenure
     description: The length of time in months between the customers first purchase and todays date
