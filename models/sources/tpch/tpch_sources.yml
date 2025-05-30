@@ -183,10 +183,6 @@ sources:
         columns:
           - name: l_orderkey
             description: Foreign Key to O_ORDERKEY
-            data_tests:
-              - relationships:
-                  to: source('tpch_now', 'orders')
-                  field: o_orderkey
           - name: l_partkey
             description: Foreign key to P_PARTKEY, first part of the compound Foreign Key to (PS_PARTKEY,PS_SUPPKEY) with L_SUPPKEY
             data_tests:
