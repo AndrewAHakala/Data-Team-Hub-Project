@@ -9,6 +9,7 @@ WITH stg_tpch_orders AS (
     *
   FROM {{ ref('dbt_demo', 'order_items') }}
 ), formula_1 AS (
+  /* Case whgen coimment */
   SELECT
     *,
     CASE WHEN RETURN_FLAG = 'accepted' THEN 1 ELSE 0 END AS IS_ACCEPTED
