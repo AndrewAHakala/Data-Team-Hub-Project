@@ -2,31 +2,31 @@ WITH fct_order_items AS (
   SELECT
     *
   FROM {{ ref('fct_order_items') }}
-), formula_a369 AS (
+), formula_1 AS (
   SELECT
     *,
     DATE_TRUNC('MONTH', ORDER_DATE) AS ORDER_MONTH
   FROM fct_order_items
-), aggregation_85ab AS (
+), aggregate_1 AS (
   SELECT
     ORDER_MONTH,
     REGION_NAME,
     SUM(GROSS_ITEM_SALES_AMOUNT) AS GROSS_REVENUE
-  FROM formula_a369
+  FROM formula_1
   GROUP BY
     ORDER_MONTH,
     REGION_NAME
-), order_aaec AS (
+), order_1 AS (
   SELECT
     *
-  FROM aggregation_85ab
+  FROM aggregate_1
   ORDER BY
     ORDER_MONTH ASC,
     REGION_NAME ASC
 ), monthly_gross_revenue AS (
   SELECT
     *
-  FROM order_aaec
+  FROM order_1
 )
 SELECT
   *
