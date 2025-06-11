@@ -45,5 +45,16 @@ models:
     staging: 
       materialized: view
 
+  dbt_artifacts:
+    +pre-hook: ["USE WAREHOUSE COMPUTE_WH"]
+    staging:
+      +pre-hook: ["USE WAREHOUSE COMPUTE_WH"]
+    sources:
+      +pre-hook: ["USE WAREHOUSE COMPUTE_WH"]
+    
+
 #tests:
 #  +store_failures: true  # all tests
+
+on-run-end:
+  - "{{ dbt_artifacts.upload_results(results) }}"
