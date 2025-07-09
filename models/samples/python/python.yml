@@ -3,5 +3,6 @@ version: 2
 models:
   - name: python_model
     description: a sample python model
-    docs:
-      node_color: '#FFBF00'
+    config:
+      docs:
+        node_color: '#FFBF00'

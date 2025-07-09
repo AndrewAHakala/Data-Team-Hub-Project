@@ -16,18 +16,12 @@ models:
 
       # be enforcing a contract we enfore the models column names, data types, and additional constraints (think not null)
       contract:
-          enforced: true
+        enforced: true
 
       # we tag this model to certain teams
       tags: ['finance', 'RevOps']
-
-    # define the group if belongs to
-    group: finance
-
-    # define the access type public == can be used outside current project, private == only within the bounds of this project
-    access: public
-    
-    # a description of this model that references a doc block
+      group: finance
+      access: public
     description: '{{ doc("monthly_gross_revenue_desc") }}'
 
     # we then define the model column information
@@ -35,7 +29,7 @@ models:
 
       # our first column
       - name: order_month
-        
+
         # we enforce this data type because this model is a contract
         data_type: date
 
@@ -47,15 +41,11 @@ models:
           - not_null
 
         # we can also have column level tags  
-        tags: ['a_column_level_tag_example']
-
-        # we can then add any addtional infromation we want to a column with the meta field, these support any yaml values
-        meta:
-          is_certified: true
-          certification_level: gold
-
-
-      # we do our second column 
+        config:
+          tags: ['a_column_level_tag_example']
+          meta:
+            is_certified: true
+            certification_level: gold
       - name: region_name
 
         data_type: text
@@ -64,12 +54,11 @@ models:
 
         tests:
           - not_null
-        
-        meta:
-          is_certified: true
-          certification_level: silver
 
-      # we do our third column 
+        config:
+          meta:
+            is_certified: true
+            certification_level: silver
       - name: gross_revenue
 
         data_type: number
@@ -81,8 +70,10 @@ models:
           - not_null:
               description: this is a not null test
           - warn_gross_revenue_is_negative:
-              severity: warn 
               description: testing the description of this test XYZ
-        meta:
-          is_certified: false
-          certification_level: uncertified
+              config:
+                severity: warn
+        config:
+          meta:
+            is_certified: false
+            certification_level: uncertified
