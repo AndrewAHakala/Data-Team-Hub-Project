@@ -4,7 +4,7 @@
     )
 }}
 select
-    date_trunc('month', order_date) as order_months,
+    date_trunc('month', order_date) as order_month,
     region_name,
     sum(gross_item_sales_amount) as gross_revenue
 
