@@ -9,5 +9,5 @@ SELECT
         PARTITION BY oli.customer_key
         ORDER BY
             oli.order_date
-    ) AS running_total
+    ) *100 AS running_total
 FROM {{ ref('fct_order_items') }} AS oli
