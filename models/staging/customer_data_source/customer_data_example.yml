@@ -10,7 +10,7 @@ models:
 
       # be enforcing a contract we enfore the models column names, data types, and additional constraints (think not null)
       contract:
-          enforced: false
+        enforced: false
 
       # we tag this model to certain teams
       tags: ['finance', 'RevOps']
@@ -20,3 +20,4 @@ models:
 
     # define the access type public == can be used outside current project, private == only within the bounds of this project
     access: public
+    description: test
