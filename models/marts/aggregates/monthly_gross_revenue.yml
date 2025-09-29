@@ -40,7 +40,7 @@ models:
         data_type: date
 
         # we define a column description
-        description: My new column description!
+        description: The month the order was placed
 
         # we apply tests to this column
         tests:
