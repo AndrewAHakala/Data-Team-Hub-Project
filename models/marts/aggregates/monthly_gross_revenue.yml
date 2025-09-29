@@ -16,7 +16,7 @@ models:
 
       # be enforcing a contract we enfore the models column names, data types, and additional constraints (think not null)
       contract:
-          enforced: true
+        enforced: true
 
       # we tag this model to certain teams
       tags: ['finance', 'RevOps']
@@ -26,7 +26,7 @@ models:
 
     # define the access type public == can be used outside current project, private == only within the bounds of this project
     access: public
-    
+
     # a description of this model that references a doc block
     description: '{{ doc("monthly_gross_revenue_desc") }}'
 
@@ -35,12 +35,12 @@ models:
 
       # our first column
       - name: order_month
-        
+
         # we enforce this data type because this model is a contract
         data_type: date
 
         # we define a column description
-        description: The month the order was placed
+        description: My new column description!
 
         # we apply tests to this column
         tests:
@@ -64,7 +64,7 @@ models:
 
         tests:
           - not_null
-        
+
         meta:
           is_certified: true
           certification_level: silver
@@ -81,7 +81,7 @@ models:
           - not_null:
               description: this is a not null test
           - warn_gross_revenue_is_negative:
-              severity: warn 
+              severity: warn
               description: testing the description of this test XYZ
         meta:
           is_certified: false
