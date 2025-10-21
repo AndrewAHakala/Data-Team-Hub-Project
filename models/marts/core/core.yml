@@ -193,7 +193,8 @@ models:
       - name: order_key
         description: primary key of the model
         data_tests:
-          - unique
+          - unique:
+              severity: error          
           - not_null
       - name: customer_key
         description: foreign key for customers
