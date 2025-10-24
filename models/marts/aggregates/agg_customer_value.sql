@@ -2,7 +2,7 @@ WITH fct_order_items AS (
   SELECT
     *
   FROM {{ ref('fct_order_items') }}
-), formula_7877 AS (
+), formula_1 AS (
   SELECT
     CUSTOMER_KEY,
     ORDER_KEY,
@@ -15,7 +15,7 @@ WITH fct_order_items AS (
 ), agg_customer_value AS (
   SELECT
     *
-  FROM formula_7877
+  FROM formula_1
 )
 SELECT
   *
