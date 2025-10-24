@@ -9,7 +9,7 @@ WITH stg_tpch_orders AS (
     *
   FROM {{ ref('dbt_demo', 'order_items') }}
 ), formula_1 AS (
-  /* Case whgen coimment */
+  /* Case when comment */
   SELECT
     ORDER_ITEM_KEY,
     ORDER_KEY,
@@ -65,7 +65,7 @@ WITH stg_tpch_orders AS (
     aggregate_1.sum_gross_sales
   FROM stg_tpch_orders
   LEFT JOIN aggregate_1
-    ON stg_tpch_orders.ORDER_KEY = aggregate_1.ORDER_KEY
+    USING (ORDER_KEY)
 ), gross_sales_accepted_orders_sql AS (
   SELECT
     *
