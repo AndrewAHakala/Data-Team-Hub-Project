@@ -1,6 +1,6 @@
 {{ config(materialized="table") }}
 select
-    date_trunc('month', order_date) as order_month,
+    date_trunc('month', order_date) as order_months,
     region_name,
     sum(gross_item_sales_amount) as gross_revenue
 
