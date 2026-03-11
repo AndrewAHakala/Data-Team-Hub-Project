@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: forge
+    database: FORGE
+    schema: STG
+    tables:
+      - name: pub_sell_detail
+
+  - name: forge_pub
+    database: FORGE
+    schema: PUB
+    tables:
+      - name: seller
+      - name: customer
+
+  - name: salesops_pi_stg
+    database: FORGE_AW
+    schema: SALESOPS_PI_STG
+    tables:
+      - name: pi_calendar
