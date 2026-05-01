@@ -1,4 +1,7 @@
-{{ config(materialized="table") }}
+{{ config(materialized="table"
+,tags = ['daily']) }}
+
+
 select
     date_trunc('month', order_date) as order_month,
     region_name,
