@@ -43,7 +43,7 @@ models:
         description: The month the order was placed
 
         # we apply tests to this column
-        tests:
+        data_tests:
           - not_null
 
         # we can also have column level tags  
@@ -62,7 +62,7 @@ models:
 
         description: the region in which revenue occured
 
-        tests:
+        data_tests:
           - not_null
 
         meta:
@@ -77,7 +77,7 @@ models:
         description: the gross revenue generated for the given line item
 
         # we apply tests to this column
-        tests:
+        data_tests:
           - not_null:
               description: this is a not null test
           - warn_gross_revenue_is_negative:
@@ -86,3 +86,23 @@ models:
         meta:
           is_certified: false
           certification_level: uncertified
+
+semantic_models:
+  - name: monthly_gross_revenue
+    model: ref('monthly_gross_revenue')
+    description: |
+      Monthly gross revenue aggregated to the grain of order month and region.
+    defaults:
+      agg_time_dimension: order_month
+    primary_entity: monthly_gross_revenue
+    dimensions:
+      - name: order_month
+        type: time
+        type_params:
+          time_granularity: month
+      - name: region_name
+        type: categorical
+    measures:
+      - name: gross_revenue
+        description: Sum of gross revenue for the month and region.
+        agg: sum
