@@ -1,4 +1,4 @@
-{{ config(materialized="table") }}
+{{ config(materialized="view") }}
 select
     date_trunc('month', order_date) as order_months,
     region_name,
