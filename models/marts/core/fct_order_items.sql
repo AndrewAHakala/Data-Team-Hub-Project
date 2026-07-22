@@ -29,15 +29,14 @@ final as (
         dim_customers.region as region_name,
         --1 as order_item_key,
         order_item.order_item_key,
-
-
         order_item.order_key,
         order_item.order_date,
         order_item.customer_key,
         order_item.part_key,
         order_item.supplier_key,
         order_item.order_item_status_code,
-        order_item.return_flag,
+        'accepted' as return_flag,
+        --order_item.return_flag,
         order_item.line_number,
         order_item.ship_date,
         order_item.commit_date,
