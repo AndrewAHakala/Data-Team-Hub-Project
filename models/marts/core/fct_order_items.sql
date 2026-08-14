@@ -29,8 +29,6 @@ final as (
         dim_customers.region as region_name,
         --1 as order_item_key,
         order_item.order_item_key,
-
-
         order_item.order_key,
         order_item.order_date,
         order_item.customer_key,
