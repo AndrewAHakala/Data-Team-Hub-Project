@@ -6,18 +6,12 @@ models:
 
       # be enforcing a contract we enfore the models column names, data types, and additional constraints (think not null)
       contract:
-          enforced: true
+        enforced: true
 
       # we tag this model to certain teams
       tags: ['finance', 'RevOps']
-
-    # define the group if belongs to
-    group: finance
-
-    # define the access type public == can be used outside current project, private == only within the bounds of this project
-    access: public
-    
-    # a description of this model that references a doc block
+      group: finance
+      access: public
     description: '{{ doc("monthly_gross_revenue_desc") }}'
 
     columns:
@@ -54,7 +48,7 @@ models:
         data_type: string
         data_tests:
           - not_null
-          
+
   - name: stg_customer
     columns:
       - name: customer_key
