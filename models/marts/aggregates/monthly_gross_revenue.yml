@@ -20,14 +20,8 @@ models:
 
       # we tag this model to certain teams
       tags: ['finance', 'RevOps']
-
-    # define the group if belongs to
-    group: finance
-
-    # define the access type public == can be used outside current project, private == only within the bounds of this project
-    access: public
-
-    # a description of this model that references a doc block
+      group: finance
+      access: public
     description: '{{ doc("monthly_gross_revenue_desc") }}'
 
     # we then define the model column information
@@ -43,33 +37,28 @@ models:
         description: The month the order was placed
 
         # we apply tests to this column
-        tests:
+        data_tests:
           - not_null
 
         # we can also have column level tags  
-        tags: ['a_column_level_tag_example']
-
-        # we can then add any addtional infromation we want to a column with the meta field, these support any yaml values
-        meta:
-          is_certified: true
-          certification_level: gold
-
-
-      # we do our second column 
+        config:
+          tags: ['a_column_level_tag_example']
+          meta:
+            is_certified: true
+            certification_level: gold
       - name: region_name
 
         data_type: text
 
         description: the region in which revenue occured
 
-        tests:
+        data_tests:
           - not_null
 
-        meta:
-          is_certified: true
-          certification_level: silver
-
-      # we do our third column 
+        config:
+          meta:
+            is_certified: true
+            certification_level: silver
       - name: gross_revenue
 
         data_type: number
@@ -77,12 +66,33 @@ models:
         description: the gross revenue generated for the given line item
 
         # we apply tests to this column
-        tests:
+        data_tests:
           - not_null:
               description: this is a not null test
           - warn_gross_revenue_is_negative:
-              severity: warn
               description: testing the description of this test XYZ
-        meta:
-          is_certified: false
-          certification_level: uncertified
+              config:
+                severity: warn
+        config:
+          meta:
+            is_certified: false
+            certification_level: uncertified
+semantic_models:
+  - name: monthly_gross_revenue
+    model: ref('monthly_gross_revenue')
+    description: |
+      Monthly gross revenue aggregated to the grain of order month and region.
+    defaults:
+      agg_time_dimension: order_month
+    primary_entity: monthly_gross_revenue
+    dimensions:
+      - name: order_month
+        type: time
+        type_params:
+          time_granularity: month
+      - name: region_name
+        type: categorical
+    measures:
+      - name: gross_revenue
+        description: Sum of gross revenue for the month and region.
+        agg: sum
