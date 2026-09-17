@@ -225,3 +225,17 @@ models:
         description: '{{ doc("item_tax_amount") }}'
       - name: net_item_sales_amount
         description: '{{ doc("net_item_sales_amount") }}'
+
+
+  - name: agg_supplier_cost_by_region
+    description: Quantity-weighted supplier cost aggregated to customer region.
+    columns:
+      - name: region_name
+        description: Customer region associated with the order items.
+        data_tests:
+          - unique
+          - not_null
+      - name: total_supplier_cost
+        description: Sum of supplier unit cost multiplied by ordered quantity for the region.
+        data_tests:
+          - not_null
